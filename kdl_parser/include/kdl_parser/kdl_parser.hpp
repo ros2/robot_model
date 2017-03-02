@@ -56,7 +56,7 @@ bool treeFromFile(const std::string& file, KDL::Tree& tree);
  * \param tree The resulting KDL Tree
  * returns true on success, false on failure
  */
-bool treeFromParam(const std::string& param, KDL::Tree& tree);
+//bool treeFromParam(const std::string& param, KDL::Tree& tree);
 
 /** Constructs a KDL tree from a string containing xml
  * \param xml A string containting the xml description of the robot
