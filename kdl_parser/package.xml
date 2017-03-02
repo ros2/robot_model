@@ -22,11 +22,13 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <build_depend>cmake_modules</build_depend>
   <build_depend version_gte="1.3.0">orocos_kdl</build_depend>
   <build_depend>urdf</build_depend>
   <build_depend>urdfdom_headers</build_depend>
   <build_depend>TinyXML</build_depend>
 
+  <exec_depend>cmake_modules</exec_depend>
   <exec_depend version_gte="1.3.0">orocos_kdl</exec_depend>
   <exec_depend>urdf</exec_depend>
   <exec_depend>TinyXML</exec_depend>

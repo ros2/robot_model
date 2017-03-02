@@ -2,10 +2,9 @@ cmake_minimum_required(VERSION 3.5)
 project(urdf)
 
 find_package(ament_cmake REQUIRED)
+find_package(cmake_modules REQUIRED)
 find_package(urdfdom REQUIRED)
 find_package(urdfdom_headers REQUIRED)
-message("urdfdom_headers ${urdfdom_headers_INCLUDE_DIRS}")
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 find_package(TinyXML REQUIRED)
 
 # Find version components
@@ -31,7 +30,6 @@ include_directories(
   )
 
 add_library(${PROJECT_NAME} SHARED src/model.cpp)
-message("urdfdom libs ${urdfdom_LIBRARIES}")
 target_link_libraries(${PROJECT_NAME} ${TinyXML_LIBRARIES} ${urdfdom_LIBRARIES})
 
 if(APPLE)
@@ -46,7 +44,6 @@ install(TARGETS ${PROJECT_NAME}
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION include/${PROJECT_NAME})
 
-set(urdf_lib_dir "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
 ament_export_libraries(${PROJECT_NAME})
 ament_export_include_directories(include)
 ament_package()

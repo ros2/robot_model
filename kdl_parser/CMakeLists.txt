@@ -2,9 +2,10 @@ cmake_minimum_required(VERSION 3.5)
 
 project(kdl_parser)
 
-find_package(ament_cmake REQUIRED)
 find_package(orocos_kdl REQUIRED)
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+find_package(ament_cmake REQUIRED)
+
+find_package(cmake_modules REQUIRED)
 find_package(TinyXML REQUIRED)
 find_package(urdf REQUIRED)
 find_package(urdfdom_headers REQUIRED)
@@ -31,11 +32,8 @@ install(TARGETS ${PROJECT_NAME}
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION include/${PROJECT_NAME})
 
-install(DIRECTORY cmake
-  DESTINATION share/${PROJECT_NAME}/)
-
-set(kdl_parser_lib_dir "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
 ament_export_dependencies(TinyXML)
+ament_export_dependencies(orocos_kdl)
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
 ament_package()
