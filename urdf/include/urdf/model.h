@@ -1,13 +1,13 @@
 /*********************************************************************
 * Software License Agreement (BSD License)
-* 
+*
 *  Copyright (c) 2008, Willow Garage, Inc.
 *  All rights reserved.
-* 
+*
 *  Redistribution and use in source and binary forms, with or without
 *  modification, are permitted provided that the following conditions
 *  are met:
-* 
+*
 *   * Redistributions of source code must retain the above copyright
 *     notice, this list of conditions and the following disclaimer.
 *   * Redistributions in binary form must reproduce the above
@@ -17,7 +17,7 @@
 *   * Neither the name of the Willow Garage nor the names of its
 *     contributors may be used to endorse or promote products derived
 *     from this software without specific prior written permission.
-* 
+*
 *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
 *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -34,34 +34,36 @@
 
 /* Author: Wim Meeussen */
 
-#ifndef URDF_MODEL_H
-#define URDF_MODEL_H
+#ifndef URDF__MODEL_H_
+#define URDF__MODEL_H_
 
 #include <string>
 #include <map>
-#include <urdf_model/model.h>
-#include <urdf/urdfdom_compatibility.h>
-#include <tinyxml.h>
+#include <memory>
 
-namespace urdf{
+#include "urdf_model/model.h"
+#include "urdf/urdfdom_compatibility.h"
+#include "tinyxml.h"  //NOLINT
 
-class Model: public ModelInterface
+namespace urdf
+{
+
+class Model : public ModelInterface
 {
 public:
   /// \brief Load Model from TiXMLElement
-  bool initXml(TiXmlElement *xml);
+  bool initXml(TiXmlElement * xml);
   /// \brief Load Model from TiXMLDocument
-  bool initXml(TiXmlDocument *xml);
+  bool initXml(TiXmlDocument * xml);
   /// \brief Load Model given a filename
-  bool initFile(const std::string& filename);
+  bool initFile(const std::string & filename);
   /// \brief Load Model from a XML-string
-  bool initString(const std::string& xmlstring);
+  bool initString(const std::string & xmlstring);
 };
 
 typedef std::shared_ptr<Model> ModelSharedPtr;
 typedef std::shared_ptr<const Model> ModelConstSharedPtr;
 typedef std::weak_ptr<Model> ModelWeakPtr;
+}  // namespace urdf
 
-}
-
-#endif
+#endif  // URDF__MODEL_H_
