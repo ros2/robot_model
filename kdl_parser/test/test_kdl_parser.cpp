@@ -35,14 +35,14 @@
 /* Author: Wim Meeussen */
 
 #include <string>
-#include <gtest/gtest.h>
-#include <ros/ros.h>
+
+#include "gtest/gtest.h"
 #include "kdl_parser/kdl_parser.hpp"
 
-using namespace kdl_parser;
+using kdl_parser;
 
 int g_argc;
-char** g_argv;
+char ** g_argv;
 
 class TestParser : public testing::Test
 {
@@ -55,7 +55,6 @@ protected:
   {
   }
 
-
   /// Destructor
   ~TestParser()
   {
@@ -63,31 +62,27 @@ protected:
 };
 
 
-TEST_F(TestParser, test)
-{
-  for (int i=1; i<g_argc-2; i++){
-    ROS_ERROR("Testing file %s", g_argv[i]);
+TEST_F(TestParser, test) {
+  for (int i = 1; i < g_argc - 2; i++) {
+    fprintf(stderr, "Testing file %s\n", g_argv[i]);
     ASSERT_FALSE(treeFromFile(g_argv[i], my_tree));
   }
 
-  ASSERT_TRUE(treeFromFile(g_argv[g_argc-1], my_tree));
+  ASSERT_TRUE(treeFromFile(g_argv[g_argc - 1], my_tree));
   ASSERT_EQ(my_tree.getNrOfJoints(), 8);
   ASSERT_EQ(my_tree.getNrOfSegments(), 16);
   ASSERT_TRUE(my_tree.getSegment("dummy_link") == my_tree.getRootSegment());
   ASSERT_EQ(my_tree.getRootSegment()->second.children.size(), (unsigned int)1);
   ASSERT_TRUE(my_tree.getSegment("base_link")->second.parent == my_tree.getRootSegment());
   ASSERT_EQ(my_tree.getSegment("base_link")->second.segment.getInertia().getMass(), 10.0);
-  ASSERT_NEAR(my_tree.getSegment("base_link")->second.segment.getInertia().getRotationalInertia().data[0], 1.000, 0.001);
+  ASSERT_NEAR(my_tree.getSegment(
+      "base_link")->second.segment.getInertia().getRotationalInertia().data[0], 1.000, 0.001);
   SUCCEED();
 }
 
-
-
-
-int main(int argc, char** argv)
+int main(int argc, char ** argv)
 {
   testing::InitGoogleTest(&argc, argv);
-  ros::init(argc, argv, "test_kdl_parser");
   g_argc = argc;
   g_argv = argv;
   return RUN_ALL_TESTS();

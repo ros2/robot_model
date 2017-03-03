@@ -44,6 +44,17 @@ install(TARGETS ${PROJECT_NAME}
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION include/${PROJECT_NAME})
 
+if(BUILD_TESTING)
+  find_package(ament_cmake_cppcheck REQUIRED)
+  find_package(ament_cmake_cpplint REQUIRED)
+  find_package(ament_cmake_lint_cmake REQUIRED)
+  find_package(ament_cmake_uncrustify REQUIRED)
+  ament_cppcheck()
+  ament_cpplint()
+  ament_lint_cmake()
+  ament_uncrustify()
+endif()
+
 ament_export_libraries(${PROJECT_NAME})
 ament_export_include_directories(include)
 ament_package()
