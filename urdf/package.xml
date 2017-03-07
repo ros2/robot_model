@@ -25,9 +25,13 @@
   <build_depend>cmake_modules</build_depend>
   <build_depend>urdfdom</build_depend>
   <build_depend>urdfdom_headers</build_depend>
+  <build_depend>TinyXML</build_depend>
+  <build_depend>tinyxml_vendor</build_depend>
 
   <exec_depend>urdfdom</exec_depend>
   <exec_depend>urdfdom-headers</exec_depend>
+  <exec_depend>TinyXML</exec_depend>
+  <exec_depend>tinyxml_vendor</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
