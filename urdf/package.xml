@@ -22,7 +22,6 @@
   <buildtool_depend version_gte="0.5.68">ament_cmake</buildtool_depend>
 
   <build_depend>console_bridge</build_depend>
-  <build_depend>cmake_modules</build_depend>
   <build_depend>urdfdom</build_depend>
   <build_depend>urdfdom_headers</build_depend>
   <build_depend>TinyXML</build_depend>

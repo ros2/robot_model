@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.5)
 project(urdf)
 
 find_package(ament_cmake REQUIRED)
-find_package(cmake_modules REQUIRED)
 find_package(urdfdom REQUIRED)
 find_package(urdfdom_headers REQUIRED)
 find_package(tinyxml_vendor REQUIRED)
