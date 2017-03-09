@@ -56,7 +56,6 @@ if(BUILD_TESTING)
   ament_uncrustify()
 endif()
 
-ament_export_dependencies(TinyXML)
 ament_export_dependencies(orocos_kdl)
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
