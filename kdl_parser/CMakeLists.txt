@@ -35,6 +35,10 @@ target_link_libraries(
   ${orocos_kdl_LIBRARIES}
   ${urdf_LIBRARIES})
 
+if (WIN32)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE "KDL_PARSER_BUILDING_DLL")
+endif()
+
 install(
   TARGETS ${PROJECT_NAME}
   LIBRARY DESTINATION lib

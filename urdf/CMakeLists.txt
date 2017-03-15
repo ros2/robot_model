@@ -18,7 +18,9 @@ set(generated_compat_header "${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}
 include_directories(include)
 configure_file(urdfdom_compatibility.h.in "${generated_compat_header}" @ONLY)
 
-add_compile_options(-std=c++11)
+if (NOT WIN32)
+  add_compile_options(-std=c++11)
+endif()
 
 install(FILES ${generated_compat_header} DESTINATION include)
 
@@ -30,6 +32,10 @@ include_directories(
 
 add_library(${PROJECT_NAME} SHARED src/model.cpp)
 target_link_libraries(${PROJECT_NAME} ${TinyXML_LIBRARIES} ${urdfdom_LIBRARIES})
+
+if (WIN32)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE "URDF_BUILDING_DLL")
+endif()
 
 if(APPLE)
   set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")

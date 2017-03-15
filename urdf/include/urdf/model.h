@@ -41,9 +41,12 @@
 #include <map>
 #include <memory>
 
-#include "urdf_model/model.h"
-#include "urdf/urdfdom_compatibility.h"
 #include "tinyxml.h"  //NOLINT
+#include "urdf_model/model.h"
+
+#include "urdf/urdfdom_compatibility.h"
+#include "urdf/visibility_control.hpp"
+
 
 namespace urdf
 {
@@ -52,13 +55,13 @@ class Model : public ModelInterface
 {
 public:
   /// \brief Load Model from TiXMLElement
-  bool initXml(TiXmlElement * xml);
+  URDF_EXPORT bool initXml(TiXmlElement * xml);
   /// \brief Load Model from TiXMLDocument
-  bool initXml(TiXmlDocument * xml);
+  URDF_EXPORT bool initXml(TiXmlDocument * xml);
   /// \brief Load Model given a filename
-  bool initFile(const std::string & filename);
+  URDF_EXPORT bool initFile(const std::string & filename);
   /// \brief Load Model from a XML-string
-  bool initString(const std::string & xmlstring);
+  URDF_EXPORT bool initString(const std::string & xmlstring);
 };
 
 typedef std::shared_ptr<Model> ModelSharedPtr;
