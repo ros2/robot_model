@@ -62,4 +62,7 @@ endif()
 
 ament_export_libraries(${PROJECT_NAME})
 ament_export_include_directories(include)
+ament_export_dependencies(TinyXML)
+ament_export_dependencies(urdfdom)
+ament_export_dependencies(urdfdom_headers)
 ament_package()
