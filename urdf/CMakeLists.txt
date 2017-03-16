@@ -18,7 +18,7 @@ set(generated_compat_header "${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}
 include_directories(include)
 configure_file(urdfdom_compatibility.h.in "${generated_compat_header}" @ONLY)
 
-if (NOT WIN32)
+if(NOT WIN32)
   add_compile_options(-std=c++11)
 endif()
 
@@ -33,7 +33,7 @@ include_directories(
 add_library(${PROJECT_NAME} SHARED src/model.cpp)
 target_link_libraries(${PROJECT_NAME} ${TinyXML_LIBRARIES} ${urdfdom_LIBRARIES})
 
-if (WIN32)
+if(WIN32)
   target_compile_definitions(${PROJECT_NAME} PRIVATE "URDF_BUILDING_DLL")
 endif()
 
@@ -62,6 +62,7 @@ endif()
 
 ament_export_libraries(${PROJECT_NAME})
 ament_export_include_directories(include)
+ament_export_dependencies(tinyxml_vendor)
 ament_export_dependencies(TinyXML)
 ament_export_dependencies(urdfdom)
 ament_export_dependencies(urdfdom_headers)
