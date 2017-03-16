@@ -33,7 +33,7 @@
     #define KDL_PARSER_EXPORT __declspec(dllexport)
     #define KDL_PARSER_IMPORT __declspec(dllimport)
   #endif
-  #ifdef KDL_PARSER_BUILDING_LIBRARY
+  #ifdef KDL_PARSER_BUILDING_DLL
     #define KDL_PARSER_PUBLIC KDL_PARSER_EXPORT
   #else
     #define KDL_PARSER_PUBLIC KDL_PARSER_IMPORT

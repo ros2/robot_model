@@ -23,7 +23,9 @@ link_directories(
   ${orocos_kdl_LIBRARY_DIRS}
   ${urdf_LIBRARY_DIRS})
 
-add_compile_options(-std=c++11)
+if(NOT WIN32)
+  add_compile_options(-std=c++11)
+endif()
 
 add_library(
   ${PROJECT_NAME}
@@ -35,7 +37,7 @@ target_link_libraries(
   ${orocos_kdl_LIBRARIES}
   ${urdf_LIBRARIES})
 
-if (WIN32)
+if(WIN32)
   target_compile_definitions(${PROJECT_NAME} PRIVATE "KDL_PARSER_BUILDING_DLL")
 endif()
 

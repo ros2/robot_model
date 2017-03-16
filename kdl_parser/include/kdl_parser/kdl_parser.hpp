@@ -53,35 +53,40 @@ namespace kdl_parser
  * \param tree The resulting KDL Tree
  * returns true on success, false on failure
  */
-KDL_PARSER_EXPORT bool treeFromFile(const std::string & file, KDL::Tree & tree);
+KDL_PARSER_PUBLIC
+bool treeFromFile(const std::string & file, KDL::Tree & tree);
 
 /** Constructs a KDL tree from the parameter server, given the parameter name
  * \param param the name of the parameter on the parameter server
  * \param tree The resulting KDL Tree
  * returns true on success, false on failure
  */
-KDL_PARSER_EXPORT bool treeFromParam(const std::string & param, KDL::Tree & tree);
+KDL_PARSER_PUBLIC
+bool treeFromParam(const std::string & param, KDL::Tree & tree);
 
 /** Constructs a KDL tree from a string containing xml
  * \param xml A string containting the xml description of the robot
  * \param tree The resulting KDL Tree
  * returns true on success, false on failure
  */
-KDL_PARSER_EXPORT bool treeFromString(const std::string & xml, KDL::Tree & tree);
+KDL_PARSER_PUBLIC
+bool treeFromString(const std::string & xml, KDL::Tree & tree);
 
 /** Constructs a KDL tree from a TiXmlDocument
  * \param xml_doc The TiXmlDocument containting the xml description of the robot
  * \param tree The resulting KDL Tree
  * returns true on success, false on failure
  */
-KDL_PARSER_EXPORT bool treeFromXml(TiXmlDocument * xml_doc, KDL::Tree & tree);
+KDL_PARSER_PUBLIC
+bool treeFromXml(TiXmlDocument * xml_doc, KDL::Tree & tree);
 
 /** Constructs a KDL tree from a URDF robot model
  * \param robot_model The URDF robot model
  * \param tree The resulting KDL Tree
  * returns true on success, false on failure
  */
-KDL_PARSER_EXPORT bool treeFromUrdfModel(const urdf::ModelInterface & robot_model, KDL::Tree & tree);
+KDL_PARSER_PUBLIC
+bool treeFromUrdfModel(const urdf::ModelInterface & robot_model, KDL::Tree & tree);
 }  // namespace kdl_parser
 
 #endif  // KDL_PARSER__KDL_PARSER_HPP_
