@@ -18,8 +18,9 @@ set(generated_compat_header "${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}
 include_directories(include)
 configure_file(urdfdom_compatibility.h.in "${generated_compat_header}" @ONLY)
 
-if(NOT WIN32)
-  add_compile_options(-std=c++11)
+# Default to C++11
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 11)
 endif()
 
 install(FILES ${generated_compat_header} DESTINATION include)

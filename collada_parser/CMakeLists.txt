@@ -6,7 +6,10 @@ find_package(Boost REQUIRED system)
 find_package(catkin REQUIRED COMPONENTS urdf_parser_plugin roscpp class_loader urdf)
 find_package(urdfdom_headers REQUIRED)
 
-add_compile_options(-std=c++11)
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
 
 catkin_package( 
   LIBRARIES ${PROJECT_NAME}

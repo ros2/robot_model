@@ -23,8 +23,9 @@ link_directories(
   ${orocos_kdl_LIBRARY_DIRS}
   ${urdf_LIBRARY_DIRS})
 
-if(NOT WIN32)
-  add_compile_options(-std=c++11)
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
 endif()
 
 add_library(
